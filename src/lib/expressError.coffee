@@ -196,7 +196,7 @@ handleUncaughtExceptions = (contextLinesCount) ->
 #                         }
 #
 exports.express3 = (options={}) ->
-  showStack = options.showStack || false
+  showStack = if options.showStack? then options.showStack else true
   dumpExceptions = options.dumpExceptions || false
   handleUncaughtException = options.handleUncaughtException || false
   contextLinesCount = options.contextLinesCount || 0
@@ -229,7 +229,7 @@ exports.express3 = (options={}) ->
         message: message
         stack: null
 
-    console.error formatText(newerr.stack) if env is "development"
+    console.error formatText(newerr.stack) if env is "development" and showStack
 
     # html
     if ~accept.indexOf("html")
