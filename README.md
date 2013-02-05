@@ -22,6 +22,7 @@ app.configure('development', function() {
     contextLinesCount: Integer,         // Number of lines to insert before and after the error line.
     handleUncaughtException: Boolean,   // Whether to handle uncaught exception.
     title: String                       // The title for HTML error page
+    showStack: Boolean                  // Whether to print the stack trace to the console in development mode (default true)
 }
 ```
 
